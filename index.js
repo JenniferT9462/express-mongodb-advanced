@@ -4,7 +4,7 @@ const app = express();
 const port = 3000;
 
 //Import user model
-const User = require('./models/Users')
+const User = require('./models/users')
 
 //Import types and ObjetId
 const { Types } = require('mongoose');
