@@ -61,11 +61,16 @@ app.post('/users', async (req, res) => {
         age: data.age,
         isActive: data.isActive
     });
-    // Save the user data to the database
-    const savedUser = await user.save();
-    console.log(savedUser);
-    // Send the saved user data as a JSON response
-    res.json(savedUser);
+    try {
+      // Save the user data to the database
+      const savedUser = await user.save();
+      console.log(savedUser);
+       // Send the saved user data as a JSON response
+      res.json(savedUser);
+    } catch (e) {
+        console.error(e);
+        res.status(500).json({ error: 'Failed to save user' });
+    }
 })
 
 // Define a PUT route to update a user by their unique ID
