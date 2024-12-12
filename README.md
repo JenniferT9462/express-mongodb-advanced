@@ -1,6 +1,9 @@
 # express-mongobd-advanced
 
 ## Overview
+This guide outlines the process of building a RESTful API using Express.js and MongoDB. It covers project setup, creating a server, defining schemas and models, and implementing CRUD operations. The tutorial also demonstrates securing sensitive data with environment variables and testing endpoints with Postman. Additionally, it includes steps for version control using Git and GitHub, making it a comprehensive resource for backend development.
+
+**Deployed Site:** <https://express-mongodb-advanced.onrender.com>
 ## Setup
 ### Project setup:
 - In your terminal make sure you `cd` into the directory that you want your project to go.
@@ -196,7 +199,116 @@ CURD is basic operations performed on database data: Create, Read, Update and De
     })
 ## Testing
 ### Test Create and Read
+- Use `Postman` for testing routes:
+- Create a User:
+    * Method POST
+    * Endpoint: http://localhost:3000/users
+    * Response: 
+        ```json
+        {
+            "name": "John Doe",
+            "email": "johnD@gmail.com",
+            "age": 21,
+            "isActive": true,
+            "_id": "675b0023b1b4bed754d109d0",
+            "__v": 0
+        }
+    * Screenshot:
+    ![POST User](</img/postUserPostman.png>)
+- Get All Users:
+    * Method: GET
+    * Endpoint: http://localhost:3000/users
+    * Response:
+        ```json
+        {
+            "_id": "675904823d0ed7ba01f9b716",
+            "name": "Jennifer",
+            "email": "jenn@gmail.com",
+            "age": 42,
+            "isActive": false,
+            "__v": 0
+        },
+        {
+            "_id": "67590e55656a9809bf3c63c8",
+            "name": "Jane Doe",
+            "email": "jane@gmail.com",
+            "age": 35,
+            "isActive": true,
+            "__v": 0
+        },
+        {
+            "_id": "675b0023b1b4bed754d109d0",
+            "name": "John Doe",
+            "email": "johnD@gmail.com",
+            "age": 21,
+            "isActive": true,
+            "__v": 0
+        }
+     * Screenshot:
+    ![Get Users](</img/getUsersPostman.png>)
+- Get Active Users:
+    * Method: GET
+    * Endpoint: http://localhost:3000/users/active
+    * Response: 
+        ```json
+            {
+            "_id": "67590e55656a9809bf3c63c8",
+            "name": "Jane Doe",
+            "email": "jane@gmail.com",
+            "age": 35,
+            "isActive": true,
+            "__v": 0
+        },
+        {
+            "_id": "675b0023b1b4bed754d109d0",
+            "name": "John Doe",
+            "email": "johnD@gmail.com",
+            "age": 21,
+            "isActive": true,
+            "__v": 0
+        }
+    * Screenshot:
+    ![Get Active Users](</img/activeUsersPostman.png>)
 ### Test Update and Delete
+- Update a User:
+    * Method: PUT
+    * Endpoint: http://localhost:3000/users/67590e55656a9809bf3c63c8
+    * Response:
+        ```json
+        {
+        "acknowledged": true,
+        "modifiedCount": 1,
+        "upsertedId": null,
+        "upsertedCount": 0,
+        "matchedCount": 1
+        }
+    * Screenshot:
+    ![Update User](</img/updateUserPostman.png>)
+- Deactivate a User:
+    * Method: PUT
+    * Endpoint: http://localhost:3000/users/675904823d0ed7ba01f9b716/deactivate
+    * Response:
+        ```json
+        {
+        "acknowledged": true,
+        "modifiedCount": 1,
+        "upsertedId": null,
+        "upsertedCount": 0,
+        "matchedCount": 1
+        }
+    * Screenshot:
+    ![Deactivate User](</img/deactivateUserPostman.png>)
+- Delete a User:
+    * Method: DELETE
+    * Endpoint: http://localhost:3000/users/67590e76656a9809bf3c63ca
+    * Response: 
+        ```json
+        {
+        "acknowledged": true,
+        "deletedCount": 1
+        }
+    * Screenshot:
+    ![Delete User](</img/deleteUserPostman.png>)
 ## Initializing a Github Repository
 - In your bash terminal, add a `.gitignore`:
     ```bash
@@ -226,6 +338,7 @@ CURD is basic operations performed on database data: Create, Read, Update and De
     git push -u origin main
 
 ## Conclusion
+The Express-MongoDB-Advanced guide provides a solid foundation for building a robust API with Express.js and MongoDB. By following this tutorial, you’ve learned essential skills such as database integration, API routing, and CRUD operations. With added knowledge of secure data handling and version control, you’re ready to enhance this project further or integrate it into a larger application.
 ## Acknowledgements
 
 - MongoDB Rest API - <https://www.mongodb.com/resources/languages/express-mongodb-rest-api-tutorial>
