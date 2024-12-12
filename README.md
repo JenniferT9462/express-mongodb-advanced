@@ -342,3 +342,5 @@ The Express-MongoDB-Advanced guide provides a solid foundation for building a ro
 ## Acknowledgements
 
 - MongoDB Rest API - <https://www.mongodb.com/resources/languages/express-mongodb-rest-api-tutorial>
+- Defining a Schema - <https://stackoverflow.com/questions/16998998/mongodb-how-to-define-a-schema>
+- MongDB Roadmap - <https://roadmap.sh/mongodb>
