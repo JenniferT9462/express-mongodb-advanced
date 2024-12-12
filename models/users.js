@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 
+
 //Define the User schema
 const userSchema = mongoose.Schema({
     name: { type: String, required: true },
@@ -8,6 +9,8 @@ const userSchema = mongoose.Schema({
     age: { type: Number, min: 0 },
     isActive: { type: Boolean, default: true } 
 })
+
+
 
 //Create the User model
 const User = mongoose.model('User', userSchema);
