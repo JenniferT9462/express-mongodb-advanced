@@ -12,13 +12,13 @@ const ObjectId = Types.ObjectId;
 
 //Import environment variables
 require('dotenv').config();
-const atlasUrl = process.env.ATLAS_URL;
+const atlasUri = process.env.ATLAS_URI;
 
 //Middleware to parse JSON
 app.use(express.json());
 
 mongoose
-  .connect(atlasUrl, {
+  .connect(atlasUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
